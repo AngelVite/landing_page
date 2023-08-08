@@ -12,39 +12,20 @@
 		<link rel="stylesheet" href="dist/css/style.css" />
 		<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
 		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-		//<script src="https://stg01maxiaublica.s3.amazonaws.com/widgets/777.whatsapp.js"></script>
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var floatingButton = document.createElement("div");
-				floatingButton.id = "floating-button";
-				floatingButton.style.position = "fixed";
-				floatingButton.style.bottom = "20px";
-				floatingButton.style.right = "20px";
-				floatingButton.style.backgroundColor = "#4cc247";
-				floatingButton.style.borderRadius = "50%";
-				floatingButton.style.width = "60px";
-				floatingButton.style.height = "60px";
-				floatingButton.style.boxShadow =
-					"0px 2px 5px rgba(0, 0, 0, 0.2)";
-				floatingButton.style.backgroundImage =
-					"url('https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c543.png')";
-				floatingButton.style.backgroundSize = "50%";
-				floatingButton.style.backgroundPosition = "center";
-				floatingButton.style.backgroundRepeat = "no-repeat";
-				document.body.appendChild(floatingButton);
-				floatingButton.addEventListener("click", function () {
-					var phoneNumber = "5590637182";
-					var message = "Â¡Hola! Quiero hablar contigo.";
-					window.open(
-						"https://wa.me/" +
-							phoneNumber +
-							"?text=" +
-							encodeURIComponent(message),
-						"_blank"
-					);
-				});
-			});
-		</script>
+		<!-- Brevo Conversations {literal} -->
+<script>
+    (function(d, w, c) {
+        w.BrevoConversationsID = '64c84dc29c7d9d27dd1d03ea';
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+</script>
+<!-- /Brevo Conversations {/literal} -->
 	</head>
 	<body class="is-boxed has-animations">
 		<div class="body-wrap">
@@ -468,5 +449,37 @@
 		</div>
 
 		<script src="dist/js/main.min.js"></script>
+		<script>
+			function jivo_onLoadCallback() {
+				let chatMode = jivo_api.chatMode();
+
+				if (chatMode === "offline") {
+					console.log("Widget is offline");
+				} else {
+					console.log("Widget is online");
+				}
+			}
+			function jivo_onOpen() {
+				console.log("Widget opened");
+				jivo_api.setWidgetColor("#ffffff", "#000000");
+
+				let apiResult = jivo_api.sendOfflineMessage({
+					name: "John Smith",
+					email: "email@example.com",
+					phone: "+14084987855",
+					description: "Description text",
+					message: "Offline message",
+				});
+
+				if (apiResult.result === "ok") {
+					console.log("Message sent successfully");
+				} else {
+					console.log(
+						"Error sending message, reason: ",
+						apiResult.error
+					);
+				}
+			}
+		</script>
 	</body>
 </html>

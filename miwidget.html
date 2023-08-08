@@ -12,9 +12,9 @@
 		<link rel="stylesheet" href="dist/css/style.css" />
 		<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
 		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-		//<script src="https://stg01maxiaublica.s3.amazonaws.com/widgets/777.whatsapp.js"></script>
 		<script>
 			document.addEventListener("DOMContentLoaded", function () {
+				// Crear el botón flotante
 				var floatingButton = document.createElement("div");
 				floatingButton.id = "floating-button";
 				floatingButton.style.position = "fixed";
@@ -26,22 +26,29 @@
 				floatingButton.style.height = "60px";
 				floatingButton.style.boxShadow =
 					"0px 2px 5px rgba(0, 0, 0, 0.2)";
+
+				// Establecer el fondo del botón con el logo de WhatsApp (imagen)
 				floatingButton.style.backgroundImage =
 					"url('https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c543.png')";
 				floatingButton.style.backgroundSize = "50%";
 				floatingButton.style.backgroundPosition = "center";
 				floatingButton.style.backgroundRepeat = "no-repeat";
+
+				// Agregar el botón al cuerpo del documento
 				document.body.appendChild(floatingButton);
+
+				// Redireccionar al hacer clic en el botón flotante
 				floatingButton.addEventListener("click", function () {
-					var phoneNumber = "5590637182";
-					var message = "Â¡Hola! Quiero hablar contigo.";
-					window.open(
-						"https://wa.me/" +
-							phoneNumber +
-							"?text=" +
-							encodeURIComponent(message),
-						"_blank"
-					);
+					// Cambiar 'tu_numero_de_telefono' por tu número de WhatsApp (con el prefijo del país y sin espacios)
+					var phoneNumber = "5515670710";
+					var message = "¡Hola! Quiero hablar contigo.";
+					// window.location.href =
+					// 	"https://wa.me/" +
+					// 	phoneNumber +
+					// 	"?text=" +
+					// 	encodeURIComponent(message);
+					window.open('https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message), '_blank');
+
 				});
 			});
 		</script>
@@ -468,5 +475,6 @@
 		</div>
 
 		<script src="dist/js/main.min.js"></script>
+		
 	</body>
 </html>

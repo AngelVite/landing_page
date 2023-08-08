@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón Flotante con Logo de WhatsApp</title>
+</head>
+<body>
+  <!-- Contenido de la página -->
+  <h1>Bienvenido a mi página</h1>
+
+  <script>
+    // Crear el botón flotante
+    var floatingButton = document.createElement('div');
+    floatingButton.id = 'floating-button';
+    floatingButton.style.position = 'fixed';
+    floatingButton.style.bottom = '20px';
+    floatingButton.style.right = '20px';
+    floatingButton.style.backgroundColor = '#4cc247';
+    floatingButton.style.borderRadius = '50%';
+    floatingButton.style.width = '60px';
+    floatingButton.style.height = '60px';
+    floatingButton.style.boxShadow = '0px 2px 5px rgba(0, 0, 0, 0.2)';
+
+    // Establecer el fondo del botón con el logo de WhatsApp (imagen)
+    floatingButton.style.backgroundImage = "url('https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c543.png')";
+    floatingButton.style.backgroundSize = '50%';
+    floatingButton.style.backgroundPosition = 'center';
+    floatingButton.style.backgroundRepeat = 'no-repeat';
+
+    // Agregar el botón al cuerpo del documento
+    document.body.appendChild(floatingButton);
+
+    // Redireccionar al hacer clic en el botón flotante
+    floatingButton.addEventListener('click', function() {
+      // Cambiar 'tu_numero_de_telefono' por tu número de WhatsApp (con el prefijo del país y sin espacios)
+      var phoneNumber = 'tu_numero_de_telefono';
+      var message = '¡Hola! Quiero hablar contigo.';
+      window.location.href = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+    });
+
+    // Mostrar u ocultar el botón flotante al hacer scroll
+    window.onscroll = function() {
+      var button = document.getElementById('floating-button');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        button.style.display = "block";
+      } else {
+        button.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
