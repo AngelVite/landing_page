@@ -33,20 +33,65 @@
 				floatingButton.style.backgroundRepeat = "no-repeat";
 				document.body.appendChild(floatingButton);
 				floatingButton.addEventListener("click", function () {
-					var phoneNumber = "5590637182";
-					var message = "Â¡Hola! Quiero hablar contigo.";
-					window.open(
-						"https://wa.me/" +
-							phoneNumber +
-							"?text=" +
-							encodeURIComponent(message),
-						"_blank"
-					);
+					let whatsappContainer = document.querySelector('#w-container');
+					if(whatsappContainer.style.display === "block") whatsappContainer.style.display = "none";
+					else whatsappContainer.style.display = "block";
+				});
+
+				let whatsappForm = document.querySelector('#w-form');
+				whatsappForm.addEventListener("submit", e => {
+					e.preventDefault();
+					let name = document.querySelector('#w-name');
+					let email = document.querySelector('#w-email');
+					let phone = document.querySelector('#w-phone');
+					let doubt = document.querySelector('#w-doubt');
+					let message = `${doubt.value} \nTe dejo mis datos de contacto.`;
+					message += `\nNombre: ${ name.value }`;
+					message += `\nCorreo electrónico: ${ email.value }`;
+					message += `\nTeléfono: ${ phone.value }`;
+					window.open(`https://wa.me/525570055678?text=${ encodeURIComponent(message) }`, '_blank');
+					name.value = '';
+					email.value = '';
+					phone.value = '';
+					doubt.value = '';
 				});
 			});
 		</script>
 	</head>
 	<body class="is-boxed has-animations">
+		<div id="w-container">
+			<div id="w-header">
+				<p id="w-header-text">
+					¡Hola! Complete los campos a continuación para iniciar la conversación en WhatsApp
+				</p>
+			</div>
+
+			<form id="w-form">
+				<div class="w-input-container">
+					<label class="w-label" >Nombre</label>
+					<input id="w-name" class="w-input" required type="text">
+				</div>
+
+				<div class="w-input-container">
+					<label class="w-label" >Correo electrónico</label>
+					<input id="w-email" class="w-input" required type="email">
+				</div>
+
+				<div class="w-input-container">
+					<label class="w-label" >Móvil</label>
+					<input id="w-phone" class="w-input" required type="text" >
+				</div>
+
+				<div class="w-input-container">
+					<label class="w-label" >Duda</label>
+					<input id="w-doubt" class="w-input" required type="text" >
+				</div>
+
+				<button type="submit" class="w-button">
+					Iniciar la conversación
+				</button>
+			</form>
+		</div>
 		<div class="body-wrap">
 			<header class="site-header">
 				<div class="container">
