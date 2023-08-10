@@ -178,7 +178,24 @@
 				wContainer.appendChild(wForm);
 
 				document.body.appendChild(wContainer);
+				// Agregar la media query y los estilos correspondientes
+				var style = document.createElement("style");
+				style.textContent = `
+					@media (max-width: 768px) {
+						#w-container {
+							width: 100% !important;
+							height: 100vh;
+							bottom: 0 !important;
+							right: 0 !important;
+							z-index: 99 !important;
+						}
 
+						#floating-button {
+							z-index: 100;
+						}
+					}
+				`;
+				document.head.appendChild(style);
 
 				let whatsappForm = document.querySelector("#w-form");
 				whatsappForm.addEventListener("submit", (e) => {

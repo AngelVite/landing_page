@@ -133,19 +133,19 @@
 // 	cursor: pointer;
 // }
 
-@media (max-width: 768px) {
-	#w-container {
-		width: 100%;
-		height: 100vh;
-		bottom: 0;
-		right: 0;
-		z-index: 99;
-	}
+// @media (max-width: 768px) {
+// 	#w-container {
+// 		width: 100%;
+// 		height: 100vh;
+// 		bottom: 0; !important
+// 		right: 0; !important
+// 		z-index: 99;
+// 	}
 
-	#floating-button {
-		z-index: 100;
-	}
-}
+// 	#floating-button {
+// 		z-index: 100;
+// 	}
+// }
 
 @include media( '>medium' ) {
 
