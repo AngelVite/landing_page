@@ -200,18 +200,20 @@
 				let whatsappForm = document.querySelector("#w-form");
 				whatsappForm.addEventListener("submit", (e) => {
 					e.preventDefault();
+					let queryParams = [];
 					let name = document.querySelector("#w-name");
 					let email = document.querySelector("#w-email");
 					let phone = document.querySelector("#w-phone");
 					let doubt = document.querySelector("#w-doubt");
-					let message = `${doubt.value} \nTe dejo mis datos de contacto.`;
-					message += `\nNombre: ${name.value}`;
-					message += `\nCorreo electrónico: ${email.value}`;
-					message += `\nTeléfono: ${phone.value}`;
+
+					queryParams.push(`name=${encodeURIComponent(name.value)}`);
+					queryParams.push(`email=${encodeURIComponent(email.value)}`);
+					queryParams.push(`phone=${encodeURIComponent(phone.value)}`);
+					queryParams.push(`doubt=${encodeURIComponent(doubt.value)}`);
+					queryParams = queryParams.join("&");
+
 					window.open(
-						`https://wa.me/525570055678?text=${encodeURIComponent(
-							message
-						)}`,
+						`https://beta.maxipublica.com/widgets/redirect/redirect/WG-ASH4?${queryParams}`,
 						"_blank"
 					);
 					name.value = "";
