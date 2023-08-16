@@ -41,30 +41,32 @@
 					else whatsappContainer.style.display = "block";
 				});
 
-				// Creando el contenedor del form
 				var wContainer = document.createElement("div");
 				wContainer.id = "w-container";
-				wContainer.style.display = "none";
+				wContainer.style.display = "block";
 				wContainer.style.width = "350px";
 				wContainer.style.backgroundColor = "#ffffff";
 				wContainer.style.position = "fixed";
 				wContainer.style.bottom = "40px";
 				wContainer.style.right = "90px";
 				wContainer.style.zIndex = "100";
+				wContainer.style.borderRadius = "12px";
 
 				var wHeader = document.createElement("div");
 				wHeader.id = "w-header";
 				wHeader.style.width = "100%";
 				wHeader.style.height = "80px";
-				wHeader.style.backgroundColor = "#128c7e";
+				wHeader.style.backgroundColor = "#fac10b";
 				wHeader.style.padding = "10px";
+				wHeader.style.borderTopLeftRadius = "12px";
+				wHeader.style.borderTopRightRadius = "12px";
 
 				var wHeaderText = document.createElement("p");
 				wHeaderText.id = "w-header-text";
-				wHeaderText.style.color = "#ffffff";
+				wHeaderText.style.color = "#000000";
 				wHeaderText.style.fontSize = ".7rem";
 				wHeaderText.textContent =
-					"¡Hola! Complete los campos a continuación para iniciar la conversación en WhatsApp";
+					"¡Hola! Complete los campos a continuación";
 				wHeader.appendChild(wHeaderText);
 				wContainer.appendChild(wHeader);
 
@@ -72,91 +74,85 @@
 				wForm.id = "w-form";
 				wForm.style.height = "100%";
 				wForm.style.width = "100%";
-				wForm.style.backgroundColor = "#ece5dd";
+				wForm.style.backgroundColor = "#ffffff";
 				wForm.style.padding = "15px";
-
-				var nameLabel = document.createElement("label");
-				nameLabel.className = "w-label";
-				nameLabel.style.color = "#000000";
-				nameLabel.style.fontSize = ".8rem";
-				nameLabel.style.fontWeight = "bold";
-				nameLabel.textContent = "Nombre";
+				wForm.style.borderBottomLeftRadius = "12px";
+				wForm.style.borderBottomRightRadius = "12px";
 
 				var nameInput = document.createElement("input");
 				nameInput.id = "w-name";
 				nameInput.className = "w-input";
+				nameInput.placeholder = "Nombre";
+				nameInput.style.border = "1px solid #ccc";
+				nameInput.style.borderRadius = "4px";
 				nameInput.style.fontSize = ".8rem";
+				nameInput.style.padding = "0 11px";
 				nameInput.required = true;
 				nameInput.type = "text";
 
 				var nameContainer = document.createElement("div");
 				nameContainer.className = "w-input-container";
 				nameContainer.style.display = "flex";
+				nameContainer.style.paddingBottom = "16px";
 				nameContainer.style.flexDirection = "column";
-				nameContainer.appendChild(nameLabel);
 				nameContainer.appendChild(nameInput);
 				wForm.appendChild(nameContainer);
-
-				var emailLabel = document.createElement("label");
-				emailLabel.className = "w-label";
-				emailLabel.style.color = "#000000";
-				emailLabel.style.fontSize = ".8rem";
-				emailLabel.style.fontWeight = "bold";
-				emailLabel.textContent = "Correo electrónico";
 
 				var emailInput = document.createElement("input");
 				emailInput.id = "w-email";
 				emailInput.className = "w-input";
+				emailInput.placeholder = "Su correo electrónico*";
+				emailInput.style.border = "1px solid #ccc";
+				emailInput.style.borderRadius = "4px";
+				emailInput.style.fontSize = ".8rem";
+				emailInput.style.padding = "0 11px";
 				emailInput.required = true;
 				emailInput.type = "email";
 
 				var emailContainer = document.createElement("div");
 				emailContainer.className = "w-input-container";
 				emailContainer.style.display = "flex";
+				emailContainer.style.paddingBottom = "16px";
 				emailContainer.style.flexDirection = "column";
-				emailContainer.appendChild(emailLabel);
 				emailContainer.appendChild(emailInput);
 				wForm.appendChild(emailContainer);
-
-				var phoneLabel = document.createElement("label");
-				phoneLabel.className = "w-label";
-				phoneLabel.style.color = "#000000";
-				phoneLabel.style.fontSize = ".8rem";
-				phoneLabel.style.fontWeight = "bold";
-				phoneLabel.textContent = "Móvil";
 
 				var phoneInput = document.createElement("input");
 				phoneInput.id = "w-phone";
 				phoneInput.className = "w-input";
+				phoneInput.placeholder = "Su teléfono";
+				phoneInput.style.border = "1px solid #ccc";
+				phoneInput.style.borderRadius = "4px";
+				phoneInput.style.fontSize = ".8rem";
+				phoneInput.style.padding = "0 11px";
 				phoneInput.required = true;
 				phoneInput.type = "text";
 
 				var phoneContainer = document.createElement("div");
 				phoneContainer.className = "w-input-container";
 				phoneContainer.style.display = "flex";
+				phoneContainer.style.paddingBottom = "16px";
 				phoneContainer.style.flexDirection = "column";
-				phoneContainer.appendChild(phoneLabel);
 				phoneContainer.appendChild(phoneInput);
 				wForm.appendChild(phoneContainer);
 
-				var doubtLabel = document.createElement("label");
-				doubtLabel.className = "w-label";
-				doubtLabel.style.color = "#000000";
-				doubtLabel.style.fontSize = ".8rem";
-				doubtLabel.style.fontWeight = "bold";
-				doubtLabel.textContent = "Duda";
-
-				var doubtInput = document.createElement("input");
+				var doubtInput = document.createElement("textarea");
 				doubtInput.id = "w-doubt";
 				doubtInput.className = "w-input";
+				doubtInput.placeholder = "Su mensaje*";
+				doubtInput.style.border = "1px solid #ccc";
+				doubtInput.style.borderRadius = "4px";
+				doubtInput.style.fontSize = ".8rem";
+				doubtInput.style.padding = "0 11px";
+				doubtInput.style.height = "78px";
 				doubtInput.required = true;
 				doubtInput.type = "text";
 
 				var doubtContainer = document.createElement("div");
 				doubtContainer.className = "w-input-container";
 				doubtContainer.style.display = "flex";
+				doubtContainer.style.paddingBottom = "16px";
 				doubtContainer.style.flexDirection = "column";
-				doubtContainer.appendChild(doubtLabel);
 				doubtContainer.appendChild(doubtInput);
 				wForm.appendChild(doubtContainer);
 
@@ -166,9 +162,11 @@
 
 				submitButton.style.marginTop = "15px";
 				submitButton.style.width = "100%";
+				submitButton.style.height = "40px";
 				submitButton.style.backgroundColor = "#25d366";
 				submitButton.style.color = "#ffffff";
 				submitButton.style.border = "0";
+				submitButton.style.borderRadius = "4px";
 				submitButton.style.fontSize = ".8rem";
 				submitButton.style.fontWeight = "bold";
 				submitButton.style.cursor = "pointer";
@@ -178,23 +176,47 @@
 				wContainer.appendChild(wForm);
 
 				document.body.appendChild(wContainer);
+				var style = document.createElement("style");
+				style.textContent = `
+					@media (max-width: 768px) {
+						#w-container {
+							width: 100% !important;
+							height: 100vh;
+							bottom: 0 !important;
+							right: 0 !important;
+							z-index: 99 !important;
+						}
 
+						#floating-button {
+							z-index: 100;
+						}
+					}
+				`;
+				document.head.appendChild(style);
 
 				let whatsappForm = document.querySelector("#w-form");
 				whatsappForm.addEventListener("submit", (e) => {
 					e.preventDefault();
+					let queryParams = [];
 					let name = document.querySelector("#w-name");
 					let email = document.querySelector("#w-email");
 					let phone = document.querySelector("#w-phone");
 					let doubt = document.querySelector("#w-doubt");
-					let message = `${doubt.value} \nTe dejo mis datos de contacto.`;
-					message += `\nNombre: ${name.value}`;
-					message += `\nCorreo electrónico: ${email.value}`;
-					message += `\nTeléfono: ${phone.value}`;
+
+					queryParams.push(`name=${encodeURIComponent(name.value)}`);
+					queryParams.push(
+						`email=${encodeURIComponent(email.value)}`
+					);
+					queryParams.push(
+						`phone=${encodeURIComponent(phone.value)}`
+					);
+					queryParams.push(
+						`doubt=${encodeURIComponent(doubt.value)}`
+					);
+					queryParams = queryParams.join("&");
+
 					window.open(
-						`https://wa.me/525570055678?text=${encodeURIComponent(
-							message
-						)}`,
+						`https://beta.maxipublica.com/widgets/redirect/WG-ASH4?${queryParams}`,
 						"_blank"
 					);
 					name.value = "";
