@@ -185,7 +185,7 @@
 						right: 0 !important;
 						z-index: 99 !important;
 					}
-	
+
 					#floating-button {
 						z-index: 100;
 					}
@@ -214,8 +214,24 @@
 					);
 					queryParams = queryParams.join("&");
 
+					let hostUrl = new URL(window.location.href);
+					let redirectUrl = `https://beta.maxipublica.com/widgets/redirect/79859582-2105-4d30-b6ea-dc219982e96f?${queryParams}`;
+					let params = new URLSearchParams(hostUrl.search);
+					let dataParam = params.get('data');
+					if (dataParam){
+						let dataObject = JSON.parse(dataParam);
+						if (dataObject){
+							const { sellerId, adId } = dataObject;
+							if ( sellerId )  redirectUrl += `&sellerId=${ encodeURIComponent(sellerId) }`;
+							if ( adId )  redirectUrl += `&adId=${ encodeURIComponent(adId) }`;
+							redirectUrl += `&utm_source=${ encodeURIComponent(hostUrl.href) }`;
+						}
+					}
+
+					console.log(redirectUrl)
+
 					window.open(
-						`https://beta.maxipublica.com/widgets/redirect/79859582-2105-4d30-b6ea-dc219982e96f?${queryParams}`,
+						redirectUrl,
 						"_blank"
 					);
 					name.value = "";
@@ -225,7 +241,7 @@
 				});
 			});
         document.addEventListener("DOMContentLoaded", function () {
-            
+
         var floatingButton = document.createElement("div");
         floatingButton.id = "floating-button";
         floatingButton.style.position = "fixed";
@@ -243,7 +259,7 @@
         floatingButton.style.backgroundPosition = "center";
         floatingButton.style.backgroundRepeat = "no-repeat";
         document.body.appendChild(floatingButton);
-        
+
         floatingButton.addEventListener("click", function () {
             let whatsappContainer =
                 document.querySelector("#w-container");
@@ -251,9 +267,9 @@
                 whatsappContainer.style.display = "none";
             else whatsappContainer.style.display = "block";
         });
-    
 
-        
+
+
         var wContainer = document.createElement("div");
         wContainer.id = "w-container";
         wContainer.style.display = "none";
@@ -387,8 +403,8 @@
 
         wContainer.appendChild(wForm);
         document.body.appendChild(wContainer);
-    
-            
+
+
         var style = document.createElement("style");
         style.textContent = `
             @media (max-width: 768px) {
@@ -406,8 +422,8 @@
             }
         `;
         document.head.appendChild(style);
-    
-            
+
+
     let whatsappForm = document.querySelector("#w-form");
     whatsappForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -429,9 +445,9 @@
         phone.value = "";
         doubt.value = "";
     });
-    
+
         })
-    
+
 		</script>
 	</head>
 	<body class="is-boxed has-animations">
