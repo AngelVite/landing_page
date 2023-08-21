@@ -12,86 +12,9 @@
 		<link rel="stylesheet" href="dist/css/style.css" />
 		<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
 		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-		<!-- <script src="https://stg01maxiaublica.s3.amazonaws.com/widgets/777.whatsapp.js"></script> -->
-		<script>
-			document.addEventListener("DOMContentLoaded", function () {
-				var floatingButton = document.createElement("div");
-				floatingButton.id = "floating-button";
-				floatingButton.style.position = "fixed";
-				floatingButton.style.bottom = "20px";
-				floatingButton.style.right = "20px";
-				floatingButton.style.backgroundColor = "#4cc247";
-				floatingButton.style.borderRadius = "50%";
-				floatingButton.style.width = "60px";
-				floatingButton.style.height = "60px";
-				floatingButton.style.boxShadow =
-					"0px 2px 5px rgba(0, 0, 0, 0.2)";
-				floatingButton.style.backgroundImage =
-					"url('https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c543.png')";
-				floatingButton.style.backgroundSize = "50%";
-				floatingButton.style.backgroundPosition = "center";
-				floatingButton.style.backgroundRepeat = "no-repeat";
-				document.body.appendChild(floatingButton);
-				floatingButton.addEventListener("click", function () {
-					let whatsappContainer = document.querySelector('#w-container');
-					if(whatsappContainer.style.display === "block") whatsappContainer.style.display = "none";
-					else whatsappContainer.style.display = "block";
-				});
-
-				let whatsappForm = document.querySelector('#w-form');
-				whatsappForm.addEventListener("submit", e => {
-					e.preventDefault();
-					let name = document.querySelector('#w-name');
-					let email = document.querySelector('#w-email');
-					let phone = document.querySelector('#w-phone');
-					let doubt = document.querySelector('#w-doubt');
-					let message = `${doubt.value} \nTe dejo mis datos de contacto.`;
-					message += `\nNombre: ${ name.value }`;
-					message += `\nCorreo electrónico: ${ email.value }`;
-					message += `\nTeléfono: ${ phone.value }`;
-					window.open(`https://wa.me/525570055678?text=${ encodeURIComponent(message) }`, '_blank');
-					name.value = '';
-					email.value = '';
-					phone.value = '';
-					doubt.value = '';
-				});
-			});
-		</script>
+		<script src="https://s3.amazonaws.com/stg01maxiaublica/widgets/79859582-2105-4d30-b6ea-dc219982e96f.js"></script>
 	</head>
 	<body class="is-boxed has-animations">
-		<div id="w-container">
-			<div id="w-header">
-				<p id="w-header-text">
-					¡Hola! Complete los campos a continuación para iniciar la conversación en WhatsApp
-				</p>
-			</div>
-
-			<form id="w-form">
-				<div class="w-input-container">
-					<label class="w-label" >Nombre</label>
-					<input id="w-name" class="w-input" required type="text">
-				</div>
-
-				<div class="w-input-container">
-					<label class="w-label" >Correo electrónico</label>
-					<input id="w-email" class="w-input" required type="email">
-				</div>
-
-				<div class="w-input-container">
-					<label class="w-label" >Móvil</label>
-					<input id="w-phone" class="w-input" required type="text" >
-				</div>
-
-				<div class="w-input-container">
-					<label class="w-label" >Duda</label>
-					<input id="w-doubt" class="w-input" required type="text" >
-				</div>
-
-				<button type="submit" class="w-button">
-					Iniciar la conversación
-				</button>
-			</form>
-		</div>
 		<div class="body-wrap">
 			<header class="site-header">
 				<div class="container">
@@ -511,7 +434,6 @@
 				</div>
 			</footer>
 		</div>
-
 		<script src="dist/js/main.min.js"></script>
 	</body>
 </html>
