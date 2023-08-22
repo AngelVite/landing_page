@@ -53,7 +53,10 @@
         var wHeaderText = document.createElement("p");
         wHeaderText.id = "w-header-text";
         wHeaderText.style.color = "#000000";
-        wHeaderText.style.fontSize = ".7rem";
+        wHeaderText.style.fontFamily = "sans-serif"
+        wHeaderText.style.fontSize = "15px";
+        wHeaderText.style.padding = "10px 5px";
+        wHeaderText.style.fontWeight = "lighter";
         wHeaderText.textContent = "¡Hola! Complete los campos a continuación para iniciar la conversación en WhatsApp";
         wHeader.appendChild(wHeaderText);
         wContainer.appendChild(wHeader);
@@ -73,8 +76,10 @@
         nameInput.placeholder = "Nombre";
         nameInput.style.border = "1px solid #ccc";
         nameInput.style.borderRadius = "4px";
-        nameInput.style.fontSize = ".8rem";
-        nameInput.style.padding = "0 11px";
+        nameInput.style.fontFamily = "sans-serif"
+        nameInput.style.fontSize = "15px";
+        nameInput.style.padding = "5px 11px";
+        nameInput.style.fontWeight = "lighter";
         nameInput.required = true;
         nameInput.type = "text";
 
@@ -92,8 +97,10 @@
         emailInput.placeholder = "Su correo electrónico*";
         emailInput.style.border = "1px solid #ccc";
         emailInput.style.borderRadius = "4px";
-        emailInput.style.fontSize = ".8rem";
-        emailInput.style.padding = "0 11px";
+        emailInput.style.fontFamily = "sans-serif"
+        emailInput.style.fontSize = "15px";
+        emailInput.style.padding = "5px 11px";
+        emailInput.style.fontWeight = "lighter";
         emailInput.required = true;
         emailInput.type = "email";
 
@@ -111,8 +118,10 @@
         phoneInput.placeholder = "Su teléfono";
         phoneInput.style.border = "1px solid #ccc";
         phoneInput.style.borderRadius = "4px";
-        phoneInput.style.fontSize = ".8rem";
-        phoneInput.style.padding = "0 11px";
+        phoneInput.style.fontFamily = "sans-serif"
+        phoneInput.style.fontSize = "15px";
+        phoneInput.style.padding = "5px 11px";
+        phoneInput.style.fontWeight = "lighter";
         phoneInput.required = true;
         phoneInput.type = "text";
 
@@ -130,8 +139,10 @@
         doubtInput.placeholder = "Su mensaje*";
         doubtInput.style.border = "1px solid #ccc";
         doubtInput.style.borderRadius = "4px";
-        doubtInput.style.fontSize = ".8rem";
-        doubtInput.style.padding = "0 11px";
+        doubtInput.style.fontFamily = "sans-serif"
+        doubtInput.style.fontSize = "15px";
+        doubtInput.style.padding = "5px 11px";
+        doubtInput.style.fontWeight = "lighter";
         doubtInput.style.height = "78px";
         doubtInput.required = true;
         doubtInput.type = "text";
@@ -155,8 +166,10 @@
         submitButton.style.color = "#ffffff";
         submitButton.style.border = "0";
         submitButton.style.borderRadius = "4px";
-        submitButton.style.fontSize = ".8rem";
+        submitButton.style.fontFamily = "sans-serif"
+        submitButton.style.fontSize = "15px";
         submitButton.style.fontWeight = "bold";
+        submitButton.style.fontWeight = "lighter";
         submitButton.style.cursor = "pointer";
         submitButton.textContent = "Iniciar la conversación";
         wForm.appendChild(submitButton);
@@ -185,7 +198,6 @@
 
 
         let whatsappForm = document.querySelector("#w-form");
-
         whatsappForm.addEventListener("submit", (e) => {
             e.preventDefault();
             let queryParams = [];
